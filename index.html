@@ -2,10 +2,19 @@
 	<h1>AJ 1.5 + ES6 + Webpack</h1>
 	
 	<p>Is Angular Working ? {{2==2}}</p>
+	<hr/>
 	
     <div class="container">
         <users-list></users-list>
     </div>
+	
+	<hr/>
+	<div class='container' ng-controller='SampleController as ctrl'>
+		<h3>{{ctrl.title}}</h3>
+		<ul>
+			<li ng-repeat='number in ctrl.numbers'>{{number}}</li>
+		</ul>
+	</div>
 
     <script src="./main.js"></script>
 </body>
