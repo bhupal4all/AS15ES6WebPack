@@ -1,10 +1,11 @@
 <body ng-app="myApp">
-	<h1>AJ 1.5 + ES6 + Webpack</h1>
+	<h1>AJ 1.6 + ES6 + Webpack</h1>
 	
 	<p>Is Angular Working ? {{2==2}}</p>
 	<hr/>
 	
     <div class="container">
+		<h3>Users Component</h3>
         <users-list></users-list>
     </div>
 	
@@ -12,8 +13,11 @@
 	<div class='container' ng-controller='SampleController as ctrl'>
 		<h3>{{ctrl.title}}</h3>
 		<ul>
-			<li ng-repeat='number in ctrl.numbers'>{{number}}</li>
+			<li ng-repeat='number in ctrl.numbers track by $index'>{{number}}</li>
 		</ul>
+		<div>
+			<p>to re-load the random numbers, press <button ng-click='ctrl.reload()'>Reload</button> button</p>
+		</div>
 	</div>
 
     <script src="./main.js"></script>

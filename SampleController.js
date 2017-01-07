@@ -1,8 +1,25 @@
+import angular from 'angular';
+import RandomNumbers from './Sample.service.js';
+
 class SampleController {
-	constructor() {
-		this.numbers=[1,2,3,4,5,6,7,8,9,10];
-		this.title = 'Loading from SampleController';
+	constructor(RandomNumbers) {
+		this.service = RandomNumbers;
+		this.numbers=[];
+		this.title = 'Loading from SampleController using RandomNumbers service';
+		
+		for(let i=0; i<5; i++) {
+			this.numbers.push(this.service.getNumber());
+		}
+		
+		console.log('SampleController created');
 	}
-}
+	
+	reload() {
+		this.numbers=[];
+		for(let i=0; i<5; i++) {
+			this.numbers.push(this.service.getNumber());
+		}
+	}
+};
 
 export default SampleController
